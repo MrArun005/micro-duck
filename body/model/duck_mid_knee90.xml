@@ -1,0 +1,276 @@
+<mujoco model="duck_mid">
+  <compiler angle="radian" meshdir="upstream/assets" />
+
+  <option iterations="1" ls_iterations="5">
+    <flag eulerdamp="disable" />
+  </option>
+
+  <size nkey="1" />
+
+  <visual>
+    <global azimuth="160" elevation="-20" />
+    <headlight ambient="0.3 0.3 0.3" diffuse="0.6 0.6 0.6" specular="0 0 0" />
+    <rgba haze="0.15 0.25 0.35 1" />
+  </visual>
+
+  <default>
+    <default class="open_duck_mini_v2">
+      <joint armature="0.005" frictionloss="0.1" />
+      <general input="pos" biastype="affine" gainprm="50" biasprm="0 -50 1" />
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2" />
+      </default>
+      <default class="collision">
+        <geom group="3" />
+      </default>
+    </default>
+    <default class="sts3215">
+      <joint armature="0.0018" damping="0.053" frictionloss="0.0048" />
+      <geom contype="0" conaffinity="0" />
+      <general forcerange="-0.96 0.96" input="pos" biastype="affine" gainprm="2.4" biasprm="0 -2.4" />
+    </default>
+    <default class="backlash">
+      <joint range="-0.00872665 0.00872665" armature="0.01" damping="0.01" limited="true" />
+    </default>
+  </default>
+
+  <asset>
+    <texture type="skybox" colorspace="auto" builtin="gradient" rgb1="1 1 1" rgb2="1 1 1" width="800" height="4800" />
+    <texture type="2d" colorspace="auto" name="groundplane" builtin="checker" mark="edge" rgb1="0.86 0.87 0.89" rgb2="0.8 0.81 0.84" markrgb="0.6 0.62 0.66" width="300" height="300" />
+    <material name="body_front_material" rgba="0.917647 0.917647 0.917647 1" />
+    <material name="body_back_material" rgba="0.917647 0.917647 0.917647 1" />
+    <material name="body_middle_bottom_material" rgba="0.917647 0.917647 0.917647 1" />
+    <material name="body_middle_top_material" rgba="0.917647 0.917647 0.917647 1" />
+    <material name="trunk_bottom_material" rgba="0.180392 0.180392 0.180392 1" />
+    <material name="trunk_top_material" rgba="0.180392 0.180392 0.180392 1" />
+    <material name="roll_motor_bottom_material" rgba="0.647059 0.647059 0.647059 1" />
+    <material name="roll_motor_top_material" rgba="0.901961 0.901961 0.901961 1" />
+    <material name="left_roll_to_pitch_material" rgba="0.909804 0.572549 0.164706 1" />
+    <material name="left_cache_material" rgba="0.917647 0.917647 0.917647 1" />
+    <material name="leg_spacer_material" rgba="0.647059 0.647059 0.647059 1" />
+    <material name="left_knee_to_ankle_right_sheet_material" rgba="0.223529 0.219608 0.219608 1" />
+    <material name="left_knee_to_ankle_left_sheet_material" rgba="0.223529 0.219608 0.219608 1" />
+    <material name="foot_side_material" rgba="0.980392 0.713725 0.00392157 1" />
+    <material name="foot_bottom_tpu_material" rgba="0.305882 0.298039 0.278431 1" />
+    <material name="foot_bottom_pla_material" rgba="0.305882 0.298039 0.278431 1" />
+    <material name="foot_top_material" rgba="0.980392 0.713725 0.00392157 1" />
+    <material name="neck_left_sheet_material" rgba="0.223529 0.219608 0.219608 1" />
+    <material name="neck_right_sheet_material" rgba="0.223529 0.219608 0.219608 1" />
+    <material name="head_pitch_to_yaw_material" rgba="0.4 0.4 0.4 1" />
+    <material name="head_yaw_to_roll_material" rgba="0.647059 0.647059 0.647059 1" />
+    <material name="right_antenna_holder_material" rgba="0.980392 0.713725 0.00392157 1" />
+    <material name="antenna_material" rgba="0.647059 0.647059 0.647059 1" />
+    <material name="left_antenna_holder_material" rgba="0.980392 0.713725 0.00392157 1" />
+    <material name="head_bot_sheet_material" rgba="0.411765 0.411765 0.411765 1" />
+    <material name="head_material" rgba="0.917647 0.917647 0.917647 1" />
+    <material name="right_roll_to_pitch_material" rgba="0.909804 0.572549 0.164706 1" />
+    <material name="right_cache_material" rgba="0.917647 0.917647 0.917647 1" />
+    <material name="groundplane" texture="groundplane" texrepeat="5 5" texuniform="true" />
+    <mesh name="body_back" content_type="model/stl" file="body_back.stl" scale="0.7 0.7 0.7" />
+    <mesh name="foot_bottom_pla" content_type="model/stl" file="foot_bottom_pla.stl" scale="0.7 0.7 0.7" />
+    <mesh name="neck_left_sheet" content_type="model/stl" file="neck_left_sheet.stl" scale="0.7 0.7 0.7" />
+    <mesh name="right_roll_to_pitch" content_type="model/stl" file="right_roll_to_pitch.stl" scale="0.7 0.7 0.7" />
+    <mesh name="trunk_bottom" content_type="model/stl" file="trunk_bottom.stl" scale="0.7 0.7 0.7" />
+    <mesh name="body_middle_bottom" content_type="model/stl" file="body_middle_bottom.stl" scale="0.7 0.7 0.7" />
+    <mesh name="antenna" content_type="model/stl" file="antenna.stl" scale="0.7 0.7 0.7" />
+    <mesh name="foot_side" content_type="model/stl" file="foot_side.stl" scale="0.7 0.7 0.7" />
+    <mesh name="left_roll_to_pitch" content_type="model/stl" file="left_roll_to_pitch.stl" scale="0.7 0.7 0.7" />
+    <mesh name="foot_top" content_type="model/stl" file="foot_top.stl" scale="0.7 0.7 0.7" />
+    <mesh name="head" content_type="model/stl" file="head.stl" scale="0.7 0.7 0.7" />
+    <mesh name="foot_bottom_tpu" content_type="model/stl" file="foot_bottom_tpu.stl" scale="0.7 0.7 0.7" />
+    <mesh name="neck_right_sheet" content_type="model/stl" file="neck_right_sheet.stl" scale="0.7 0.7 0.7" />
+    <mesh name="head_yaw_to_roll" content_type="model/stl" file="head_yaw_to_roll.stl" scale="0.7 0.7 0.7" />
+    <mesh name="roll_motor_top" content_type="model/stl" file="roll_motor_top.stl" scale="0.7 0.7 0.7" />
+    <mesh name="left_knee_to_ankle_left_sheet" content_type="model/stl" file="left_knee_to_ankle_left_sheet.stl" scale="0.7 0.7 0.7" />
+    <mesh name="body_middle_top" content_type="model/stl" file="body_middle_top.stl" scale="0.7 0.7 0.7" />
+    <mesh name="left_antenna_holder" content_type="model/stl" file="left_antenna_holder.stl" scale="0.7 0.7 0.7" />
+    <mesh name="head_pitch_to_yaw" content_type="model/stl" file="head_pitch_to_yaw.stl" scale="0.7 0.7 0.7" />
+    <mesh name="right_antenna_holder" content_type="model/stl" file="right_antenna_holder.stl" scale="0.7 0.7 0.7" />
+    <mesh name="roll_motor_bottom" content_type="model/stl" file="roll_motor_bottom.stl" scale="0.7 0.7 0.7" />
+    <mesh name="right_cache" content_type="model/stl" file="right_cache.stl" scale="0.7 0.7 0.7" />
+    <mesh name="left_knee_to_ankle_right_sheet" content_type="model/stl" file="left_knee_to_ankle_right_sheet.stl" scale="0.7 0.7 0.7" />
+    <mesh name="body_front" content_type="model/stl" file="body_front.stl" scale="0.7 0.7 0.7" />
+    <mesh name="leg_spacer" content_type="model/stl" file="leg_spacer.stl" scale="0.7 0.7 0.7" />
+    <mesh name="trunk_top" content_type="model/stl" file="trunk_top.stl" scale="0.7 0.7 0.7" />
+    <mesh name="head_bot_sheet" content_type="model/stl" file="head_bot_sheet.stl" scale="0.7 0.7 0.7" />
+    <mesh name="left_cache" content_type="model/stl" file="left_cache.stl" scale="0.7 0.7 0.7" />
+  </asset>
+
+  <worldbody>
+    <body name="base" pos="0 0 0.154">
+      <joint name="floating_base" type="free" />
+      <site name="imu" pos="-0.060977 0 0.0292536" />
+      <body name="trunk_assembly" childclass="open_duck_mini_v2">
+        <inertial pos="-0.0338281 -6.98476e-05 0.026948" quat="0.505499 0.490695 0.496207 0.507413" mass="0.263702" diaginertia="0.00063724 0.000541473 0.00031004" />
+        <geom class="visual" pos="-0.0133 0 0.0454236" quat="1 0 0 0" material="body_front_material" mesh="body_front" />
+        <geom class="visual" pos="-0.0133 0 0.0454236" material="body_back_material" mesh="body_back" />
+        <geom class="visual" pos="-0.0133 0 0.0454236" quat="1 0 0 0" material="body_middle_bottom_material" mesh="body_middle_bottom" />
+        <geom class="visual" pos="-0.0133 0 0.0454236" quat="1 0 0 0" material="body_middle_top_material" mesh="body_middle_top" />
+        <geom class="visual" pos="-0.0133 0 0.0454236" quat="1 0 0 0" material="trunk_bottom_material" mesh="trunk_bottom" />
+        <geom class="visual" pos="-0.0133 0 0.0454236" quat="1 0 0 0" material="trunk_top_material" mesh="trunk_top" />
+        <geom name="trunk_assembly_body_front_col0" pos="-0.0133 0 0.0454236" quat="1 0 0 0" type="mesh" contype="0" conaffinity="5" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="body_front" />
+        <geom name="trunk_assembly_body_back_col1" pos="-0.0133 0 0.0454236" type="mesh" contype="0" conaffinity="5" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="body_back" />
+        <geom name="trunk_assembly_body_middle_bottom_col2" pos="-0.0133 0 0.0454236" quat="1 0 0 0" type="mesh" contype="0" conaffinity="5" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="body_middle_bottom" />
+        <geom name="trunk_assembly_body_middle_top_col3" pos="-0.0133 0 0.0454236" quat="1 0 0 0" type="mesh" contype="0" conaffinity="5" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="body_middle_top" />
+        <geom name="trunk_assembly_trunk_bottom_col4" pos="-0.0133 0 0.0454236" quat="1 0 0 0" type="mesh" contype="0" conaffinity="5" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="trunk_bottom" />
+        <geom name="trunk_assembly_trunk_top_col5" pos="-0.0133 0 0.0454236" quat="1 0 0 0" type="mesh" contype="0" conaffinity="5" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="trunk_top" />
+        <site name="trunk" pos="-0.0168 0 0.0617336" />
+        <body name="hip_roll_assembly" pos="-0.0133 0.0245 0.0321586" quat="1 0 0 0">
+          <inertial pos="0.000556557 -3.82579e-06 -0.023142" quat="0.70723 0.0130259 0.0134112 0.706737" mass="0.025097" diaginertia="5.21309e-06 4.52378e-06 2.63679e-06" />
+          <joint name="left_hip_yaw" class="sts3215" range="-0.610865 0.610865" />
+          <geom class="visual" pos="0 -0.0245 0.013335" quat="1 0 0 0" material="roll_motor_bottom_material" mesh="roll_motor_bottom" />
+          <geom class="visual" pos="0 -0.0245 0.013335" quat="1 0 0 0" material="roll_motor_top_material" mesh="roll_motor_top" />
+          <body name="left_roll_to_pitch_assembly" pos="0.013335 0 -0.0322105" quat="0.5 -0.5 -0.5 0.5">
+            <inertial pos="0.0355629 -0.000287735 0.0143293" quat="0.549996 0.44882 0.449902 0.541898" mass="0.0283738" diaginertia="7.65587e-06 5.22415e-06 4.64616e-06" />
+            <joint name="left_hip_roll" class="sts3215" range="-0.523599 0.523599" />
+            <geom class="visual" pos="-0.0245 -0.0455 0.013335" quat="0.5 0.5 0.5 -0.5" material="left_roll_to_pitch_material" mesh="left_roll_to_pitch" />
+            <body name="knee_and_ankle_assembly" pos="0.051905 0 0.024577" quat="0 -0.707107 0 0.707107">
+              <inertial pos="0.00177358 -0.0273445 0.00719432" quat="0.576793 0.413738 -0.51125 0.484515" mass="0.0468379" diaginertia="4.22684e-05 4.00714e-05 1.29994e-05" />
+              <joint name="left_hip_pitch" class="sts3215" range="-1.309 0.610865" />
+              <geom class="visual" pos="0.011242 0.0455 0.076405" quat="0.707107 -0.707107 0 0" material="left_cache_material" mesh="left_cache" />
+              <geom class="visual" pos="0.011242 0.100555 0.076475" quat="0.707107 -0.707107 0 0" material="leg_spacer_material" mesh="leg_spacer" />
+              <geom class="visual" pos="0.011242 0.100555 0.076405" quat="0.707107 -0.707107 0 0" material="left_knee_to_ankle_right_sheet_material" mesh="left_knee_to_ankle_right_sheet" />
+              <geom class="visual" pos="0.011242 0.100555 0.076405" quat="0.707107 -0.707107 0 0" material="left_knee_to_ankle_left_sheet_material" mesh="left_knee_to_ankle_left_sheet" />
+              <geom name="knee_and_ankle_assembly_left_cache_col10" pos="0.011242 0.0455 0.076405" quat="0.707107 -0.707107 0 0" type="mesh" contype="2" conaffinity="3" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="left_cache" />
+              <body name="knee_and_ankle_assembly_2" pos="0 -0.055055 7e-05">
+                <inertial pos="3.51301e-06 -0.0404225 0.0126795" quat="0.708422 0.705789 1.07944e-05 0.00022447" mass="0.0274036" diaginertia="9.24117e-06 7.84198e-06 3.46413e-06" />
+                <joint name="left_knee" class="sts3215" range="-1.65806 1.65806" />
+                <geom class="visual" pos="0.011242 0.100555 0.076475" quat="0.707107 -0.707107 0 0" material="leg_spacer_material" mesh="leg_spacer" />
+                <geom class="visual" pos="0.011242 0.100555 0.076405" quat="0.707107 -0.707107 0 0" material="left_knee_to_ankle_right_sheet_material" mesh="left_knee_to_ankle_right_sheet" />
+                <geom class="visual" pos="0.011242 0.100555 0.076405" quat="0.707107 -0.707107 0 0" material="left_knee_to_ankle_left_sheet_material" mesh="left_knee_to_ankle_left_sheet" />
+                <geom name="knee_and_ankle_assembly_2_leg_spacer_col12" pos="0.011242 0.100555 0.076475" quat="0.707107 -0.707107 0 0" type="mesh" contype="2" conaffinity="3" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="leg_spacer" />
+                <geom name="knee_and_ankle_assembly_2_left_knee_to_ankle_right_sheet_col13" pos="0.011242 0.100555 0.076405" quat="0.707107 -0.707107 0 0" type="mesh" contype="2" conaffinity="3" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="left_knee_to_ankle_right_sheet" />
+                <geom name="knee_and_ankle_assembly_2_left_knee_to_ankle_left_sheet_col14" pos="0.011242 0.100555 0.076405" quat="0.707107 -0.707107 0 0" type="mesh" contype="2" conaffinity="3" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="left_knee_to_ankle_left_sheet" />
+                <body name="foot_assembly" pos="0 -0.055055 7e-05" quat="1 0 0 0">
+                  <inertial pos="0.00775026 -0.0172626 0.0133438" quat="0.506105 0.510039 0.489653 0.49392" mass="0.028404" diaginertia="1.24852e-05 1.12116e-05 3.45847e-06" />
+                  <joint name="left_ankle" class="sts3215" range="-1.65806 1.65806" />
+                  <geom class="visual" pos="0.011242 0.15561 0.076335" quat="0.707107 -0.707107 0 0" material="foot_side_material" mesh="foot_side" />
+                  <geom class="visual" pos="0.011592 0.15596 0.076685" quat="0.707107 -0.707107 0 0" material="foot_bottom_tpu_material" mesh="foot_bottom_tpu" />
+                  <geom name="left_foot_bottom_tpu" class="collision" pos="0.011592 0.15596 0.076685" quat="0.707107 -0.707107 0 0" type="mesh" material="foot_bottom_tpu_material" mesh="foot_bottom_tpu" />
+                  <geom class="visual" pos="0.011592 0.15596 0.076685" quat="0.707107 -0.707107 0 0" material="foot_bottom_pla_material" mesh="foot_bottom_pla" />
+                  <geom class="visual" pos="0.011242 0.15561 0.076335" quat="0.707107 -0.707107 0 0" material="foot_top_material" mesh="foot_top" />
+                  <geom name="foot_assembly_foot_side_col18" pos="0.011242 0.15561 0.076335" quat="0.707107 -0.707107 0 0" type="mesh" contype="2" conaffinity="3" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="foot_side" />
+                  <geom name="foot_assembly_foot_top_col19" pos="0.011242 0.15561 0.076335" quat="0.707107 -0.707107 0 0" type="mesh" contype="2" conaffinity="3" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="foot_top" />
+                  <site name="left_foot" pos="0.00035 -0.0253575 0.013685" quat="0.707107 -0.707107 0 0" />
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="neck_pitch_assembly" pos="0.0007 0.013405 0.0630006" quat="0.707107 0.707107 0 0">
+          <inertial pos="-3.94196e-06 0.0345078 0.012725" quat="0.70651 0.707703 0.000283173 6.23371e-05" mass="0.0249837" diaginertia="6.46426e-06 5.18025e-06 3.14894e-06" />
+          <joint name="neck_pitch" class="sts3215" range="-0.436332 1.22173" stiffness="0.8456" damping="0.01057" springref="0.10448" frictionloss="0" armature="0.0001" />
+          <geom class="visual" pos="-0.014 -0.017577 0.013335" quat="0.707107 -0.707107 0 0" material="neck_left_sheet_material" mesh="neck_left_sheet" />
+          <geom class="visual" pos="-0.014 -0.017577 0.013335" quat="0.707107 -0.707107 0 0" material="neck_right_sheet_material" mesh="neck_right_sheet" />
+          <body name="head_pitch_to_yaw" pos="0 0.0462 0">
+            <inertial pos="-0.00536373 0.0182105 0.0130677" quat="0.692632 0.709795 0.090153 0.0912389" mass="0.00639421" diaginertia="1.81024e-06 1.48562e-06 7.93528e-07" />
+            <joint name="head_pitch" class="sts3215" range="-0.872665 0.872665" />
+            <geom class="visual" pos="-0.014 -0.063777 0.013335" quat="0.707107 -0.707107 0 0" material="head_pitch_to_yaw_material" mesh="head_pitch_to_yaw" />
+            <body name="neck_yaw_assembly" pos="0 0.0399 0.013335" quat="0.707107 -0.707107 0 0">
+              <inertial pos="0.00289035 2.77021e-06 -0.015598" quat="-0.0011042 0.66693 -0.00105483 0.745118" mass="0.0346593" diaginertia="1.31138e-05 1.2855e-05 5.67528e-06" />
+              <joint name="head_yaw" class="sts3215" range="-3.14159 3.14159" />
+              <geom class="visual" pos="-0.014 0 -0.103747" quat="1 0 0 0" material="head_yaw_to_roll_material" mesh="head_yaw_to_roll" />
+              <body name="head_assembly" pos="0.028665 0 -0.013405" quat="0.707107 0 -0.707107 0">
+                <inertial pos="0.00570791 -0.00273528 0.0159408" quat="0.999322 -0.0148519 -0.0335911 -0.00262999" mass="0.153499" diaginertia="0.000453665 0.000312049 0.00019853" />
+                <joint name="head_roll" class="sts3215" range="-0.610865 0.610865" stiffness="0.2114" damping="0.005285" springref="0.01948" frictionloss="0" armature="0.0001" />
+                <geom class="visual" pos="-0.090342 0 0.042665" quat="0.707107 0 0.707107 0" material="right_antenna_holder_material" mesh="right_antenna_holder" />
+                <geom class="visual" pos="-0.0581416 0.127548 0.042665" quat="0.685585 0.173128 0.685585 -0.173128" material="antenna_material" mesh="antenna" />
+                <geom class="visual" pos="-0.089656 0.000173263 0.042665" quat="0.707107 0 0.707107 0" material="antenna_material" mesh="antenna" />
+                <geom class="visual" pos="-0.090342 0 0.042665" quat="0.707107 0 0.707107 0" material="left_antenna_holder_material" mesh="left_antenna_holder" />
+                <geom class="visual" pos="-0.090342 0 0.042665" quat="0.707107 0 0.707107 0" material="head_bot_sheet_material" mesh="head_bot_sheet" />
+                <geom class="visual" pos="-0.090342 0 0.042665" quat="0.707107 0 0.707107 0" material="head_material" mesh="head" />
+                <geom name="head_assembly_right_antenna_holder_col6" pos="-0.090342 0 0.042665" quat="0.707107 0 0.707107 0" type="mesh" contype="4" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="right_antenna_holder" />
+                <geom name="head_assembly_left_antenna_holder_col7" pos="-0.090342 0 0.042665" quat="0.707107 0 0.707107 0" type="mesh" contype="4" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="left_antenna_holder" />
+                <geom name="head_assembly_head_bot_sheet_col8" pos="-0.090342 0 0.042665" quat="0.707107 0 0.707107 0" type="mesh" contype="4" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="head_bot_sheet" />
+                <geom name="head_assembly_head_col9" pos="-0.090342 0 0.042665" quat="0.707107 0 0.707107 0" type="mesh" contype="4" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="head" />
+                <site name="head" pos="0.029715 0 0.025165" quat="0.707107 0 0.707107 0" />
+              <geom name="upper_bill" type="ellipsoid" size="0.021 0.0385 0.0063" pos="-0.00261723 -7e-05 -0.056735" quat="0.707107 -0 0.707107 -0" rgba="1 0.62 0.1 1" contype="4" conaffinity="1" group="1" density="0" friction="0.6" /><body name="jaw" pos="-0.0103172 -7e-05 -0.035035" quat="0.707107 -0 0.707107 -0"><inertial pos="0.021 0 0" mass="0.00453014" diaginertia="3.69961e-07 5.54942e-07 7.39923e-07" /><joint name="jaw" axis="0 1 0" range="0 0.61" damping="0.02" armature="0.0005" /><geom name="lower_bill" type="ellipsoid" size="0.021 0.035 0.0042" pos="0.021 0 0" rgba="1 0.62 0.1 1" contype="2" conaffinity="1" group="1" density="0" friction="0.6" /></body></body>
+            </body>
+          </body>
+        </body>
+        <body name="hip_roll_assembly_2" pos="-0.0133 -0.0245 0.0321586" quat="1 0 0 0">
+          <inertial pos="0.000556557 -3.82579e-06 -0.023142" quat="0.70723 0.0130259 0.0134112 0.706737" mass="0.025097" diaginertia="5.21309e-06 4.52378e-06 2.63679e-06" />
+          <joint name="right_hip_yaw" class="sts3215" range="-0.610865 0.610865" />
+          <geom class="visual" pos="0 -0.0245 0.013335" quat="1 0 0 0" material="roll_motor_bottom_material" mesh="roll_motor_bottom" />
+          <geom class="visual" pos="0 -0.0245 0.013335" quat="1 0 0 0" material="roll_motor_top_material" mesh="roll_motor_top" />
+          <body name="right_roll_to_pitch_assembly" pos="0.013335 0 -0.0322105" quat="0.5 -0.5 -0.5 0.5">
+            <inertial pos="-0.0355629 -0.000294519 0.0143293" quat="0.449468 0.542039 0.549857 0.449254" mass="0.0283738" diaginertia="7.65585e-06 5.22409e-06 4.64603e-06" />
+            <joint name="right_hip_roll" class="sts3215" range="-0.523599 0.523599" />
+            <geom class="visual" pos="0.0245 -0.0455 0.013335" quat="0.5 0.5 0.5 -0.5" material="right_roll_to_pitch_material" mesh="right_roll_to_pitch" />
+            <body name="knee_and_ankle_assembly_3" pos="-0.051905 0 0.024577" quat="0.707107 0 0.707107 0">
+              <inertial pos="0.00177358 0.0273445 0.0075663" quat="0.411106 0.577419 -0.487142 0.510169" mass="0.0468379" diaginertia="4.23202e-05 4.02481e-05 1.31249e-05" />
+              <joint name="right_hip_pitch" class="sts3215" range="-0.610865 1.309" />
+              <geom class="visual" pos="0.011242 -0.0455 0.07644" quat="0.707107 0.707107 0 0" material="right_cache_material" mesh="right_cache" />
+              <geom class="visual" pos="0.011242 -0.100555 -0.050505" quat="0.707107 0.707107 0 0" material="leg_spacer_material" mesh="leg_spacer" />
+              <geom class="visual" pos="0.011242 -0.100555 -0.050435" quat="0.707107 0.707107 0 0" material="left_knee_to_ankle_right_sheet_material" mesh="left_knee_to_ankle_right_sheet" />
+              <geom class="visual" pos="0.011242 -0.100555 -0.050435" quat="0.707107 0.707107 0 0" material="left_knee_to_ankle_left_sheet_material" mesh="left_knee_to_ankle_left_sheet" />
+              <geom name="knee_and_ankle_assembly_3_right_cache_col11" pos="0.011242 -0.0455 0.07644" quat="0.707107 0.707107 0 0" type="mesh" contype="2" conaffinity="3" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="right_cache" />
+              <body name="knee_and_ankle_assembly_4" pos="0 0.055055 0.0259" quat="0 1 0 0">
+                <inertial pos="3.51301e-06 -0.0404225 0.0126795" quat="0.708422 0.705789 1.07944e-05 0.00022447" mass="0.0274036" diaginertia="9.24117e-06 7.84198e-06 3.46413e-06" />
+                <joint name="right_knee" class="sts3215" range="-1.65806 1.65806" />
+                <geom class="visual" pos="0.011242 0.100555 0.076475" quat="0.707107 -0.707107 0 0" material="leg_spacer_material" mesh="leg_spacer" />
+                <geom class="visual" pos="0.011242 0.100555 0.076405" quat="0.707107 -0.707107 0 0" material="left_knee_to_ankle_right_sheet_material" mesh="left_knee_to_ankle_right_sheet" />
+                <geom class="visual" pos="0.011242 0.100555 0.076405" quat="0.707107 -0.707107 0 0" material="left_knee_to_ankle_left_sheet_material" mesh="left_knee_to_ankle_left_sheet" />
+                <geom name="knee_and_ankle_assembly_4_leg_spacer_col15" pos="0.011242 0.100555 0.076475" quat="0.707107 -0.707107 0 0" type="mesh" contype="2" conaffinity="3" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="leg_spacer" />
+                <geom name="knee_and_ankle_assembly_4_left_knee_to_ankle_right_sheet_col16" pos="0.011242 0.100555 0.076405" quat="0.707107 -0.707107 0 0" type="mesh" contype="2" conaffinity="3" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="left_knee_to_ankle_right_sheet" />
+                <geom name="knee_and_ankle_assembly_4_left_knee_to_ankle_left_sheet_col17" pos="0.011242 0.100555 0.076405" quat="0.707107 -0.707107 0 0" type="mesh" contype="2" conaffinity="3" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="left_knee_to_ankle_left_sheet" />
+                <body name="foot_assembly_2" pos="0 -0.055055 7e-05" quat="1 0 0 0">
+                  <inertial pos="0.00775026 -0.0172626 0.0133438" quat="0.506105 0.510039 0.489653 0.49392" mass="0.028404" diaginertia="1.24852e-05 1.12116e-05 3.45847e-06" />
+                  <joint name="right_ankle" class="sts3215" range="-1.65806 1.65806" />
+                  <geom class="visual" pos="0.011242 0.15561 0.076335" quat="0.707107 -0.707107 0 0" material="foot_side_material" mesh="foot_side" />
+                  <geom class="visual" pos="0.011592 0.15596 0.076685" quat="0.707107 -0.707107 0 0" material="foot_bottom_tpu_material" mesh="foot_bottom_tpu" />
+                  <geom name="right_foot_bottom_tpu" class="collision" pos="0.011592 0.15596 0.076685" quat="0.707107 -0.707107 0 0" type="mesh" material="foot_bottom_tpu_material" mesh="foot_bottom_tpu" />
+                  <geom class="visual" pos="0.011592 0.15596 0.076685" quat="0.707107 -0.707107 0 0" material="foot_bottom_pla_material" mesh="foot_bottom_pla" />
+                  <geom class="visual" pos="0.011242 0.15561 0.076335" quat="0.707107 -0.707107 0 0" material="foot_top_material" mesh="foot_top" />
+                  <geom name="foot_assembly_2_foot_side_col20" pos="0.011242 0.15561 0.076335" quat="0.707107 -0.707107 0 0" type="mesh" contype="2" conaffinity="3" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="foot_side" />
+                  <geom name="foot_assembly_2_foot_top_col21" pos="0.011242 0.15561 0.076335" quat="0.707107 -0.707107 0 0" type="mesh" contype="2" conaffinity="3" group="3" friction="0.6" rgba="0.9 0.3 0.2 0.35" density="0" mesh="foot_top" />
+                  <site name="right_foot" pos="0.00035 -0.0253575 0.013685" quat="0.707107 -0.707107 0 0" />
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="floor">
+      <geom name="floor" size="0 0 0.01" type="plane" conaffinity="0" priority="1" friction="0.6" material="groundplane" />
+    </body>
+  </worldbody>
+
+  <actuator>
+    <general name="left_hip_yaw" class="sts3215" joint="left_hip_yaw" ctrlrange="-0.523599 0.523599" ctrllimited="true" />
+    <general name="left_hip_roll" class="sts3215" joint="left_hip_roll" ctrlrange="-0.436332 0.436332" ctrllimited="true" />
+    <general name="left_hip_pitch" class="sts3215" joint="left_hip_pitch" ctrlrange="-1.22173 0.523599" ctrllimited="true" />
+    <general name="left_knee" class="sts3215" joint="left_knee" ctrlrange="-1.5708 1.5708" ctrllimited="true" />
+    <general name="left_ankle" class="sts3215" joint="left_ankle" ctrlrange="-1.5708 1.5708" ctrllimited="true" />
+    <general name="head_pitch" class="sts3215" joint="head_pitch" ctrlrange="-0.785398 0.785398" ctrllimited="true" />
+    <general name="head_yaw" class="sts3215" joint="head_yaw" ctrlrange="-3.14159 3.14159" ctrllimited="true" />
+    <general name="right_hip_yaw" class="sts3215" joint="right_hip_yaw" ctrlrange="-0.523599 0.523599" ctrllimited="true" />
+    <general name="right_hip_roll" class="sts3215" joint="right_hip_roll" ctrlrange="-0.436332 0.436332" ctrllimited="true" />
+    <general name="right_hip_pitch" class="sts3215" joint="right_hip_pitch" ctrlrange="-0.523599 1.22173" ctrllimited="true" />
+    <general name="right_knee" class="sts3215" joint="right_knee" ctrlrange="-1.5708 1.5708" ctrllimited="true" />
+    <general name="right_ankle" class="sts3215" joint="right_ankle" ctrlrange="-1.5708 1.5708" ctrllimited="true" />
+  <position name="jaw" joint="jaw" kp="2.0" ctrlrange="0 0.61" forcerange="-0.2 0.2" /></actuator>
+
+  <sensor>
+    <gyro site="imu" name="gyro" />
+    <velocimeter site="imu" name="local_linvel" />
+    <accelerometer site="imu" name="accelerometer" />
+    <framezaxis objtype="site" objname="imu" name="upvector" />
+    <framexaxis objtype="site" objname="imu" name="forwardvector" />
+    <framelinvel objtype="site" objname="imu" name="global_linvel" />
+    <frameangvel objtype="site" objname="imu" name="global_angvel" />
+    <framepos objtype="site" objname="imu" name="position" />
+    <framequat objtype="site" objname="imu" name="orientation" />
+    <framelinvel objtype="site" objname="right_foot" name="right_foot_global_linvel" />
+    <framelinvel objtype="site" objname="left_foot" name="left_foot_global_linvel" />
+    <framexaxis objtype="site" objname="left_foot" name="left_foot_upvector" />
+    <framexaxis objtype="site" objname="right_foot" name="right_foot_upvector" />
+    <framepos objtype="site" objname="left_foot" name="left_foot_pos" />
+    <framepos objtype="site" objname="right_foot" name="right_foot_pos" />
+  </sensor>
+
+  <keyframe>
+    <key name="home" qpos="0 0 0.116822 1 0 0 0 0.002 0.053 -0.63 1.368 -0.784 0 0 0 0 0 -0.003 -0.065 0.635 1.379 -0.796" ctrl="0.002 0.053 -0.63 1.368 -0.784 0 0 -0.003 -0.065 0.635 1.379 -0.796 0" />
+  </keyframe>
+</mujoco>

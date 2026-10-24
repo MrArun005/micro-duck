@@ -1,0 +1,39 @@
+body                              mass kg  inertia diag (kg·m²)
+trunk_assembly                     0.6985  3.44e-03 2.93e-03 1.68e-03
+hip_roll_assembly                  0.0665  2.82e-05 2.45e-05 1.43e-05
+left_roll_to_pitch_assembly        0.0752  4.14e-05 2.82e-05 2.51e-05
+knee_and_ankle_assembly            0.1241  2.29e-04 2.17e-04 7.03e-05
+knee_and_ankle_assembly_2          0.0726  5.00e-05 4.24e-05 1.87e-05
+foot_assembly                      0.0752  6.75e-05 6.06e-05 1.87e-05
+neck_pitch_assembly                0.0662  3.49e-05 2.80e-05 1.70e-05
+head_pitch_to_yaw                  0.0169  9.79e-06 8.03e-06 4.29e-06
+neck_yaw_assembly                  0.0918  7.09e-05 6.95e-05 3.07e-05
+head_assembly                      0.4066  2.45e-03 1.69e-03 1.07e-03
+hip_roll_assembly_2                0.0665  2.82e-05 2.45e-05 1.43e-05
+right_roll_to_pitch_assembly       0.0752  4.14e-05 2.82e-05 2.51e-05
+knee_and_ankle_assembly_3          0.1241  2.29e-04 2.18e-04 7.10e-05
+knee_and_ankle_assembly_4          0.0726  5.00e-05 4.24e-05 1.87e-05
+foot_assembly_2                    0.0752  6.75e-05 6.06e-05 1.87e-05
+TOTAL MASS 2.107 kg
+
+joint                  servo range°   hard stop°     kp    kv τmax N·m (kg·cm) armature damping friction
+left_hip_yaw               -30 … 30     -35 … 35  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+left_hip_roll              -25 … 25     -30 … 30  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+left_hip_pitch             -70 … 30     -75 … 35  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+left_knee                  -90 … 90     -95 … 95  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+left_ankle                 -90 … 90     -95 … 95  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+neck_pitch                 -20 … 65     -25 … 70  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+head_pitch                 -45 … 45     -50 … 50  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+head_yaw                 -160 … 160   -165 … 165  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+head_roll                  -30 … 30     -35 … 35  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+right_hip_yaw              -30 … 30     -35 … 35  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+right_hip_roll             -25 … 25     -30 … 30  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+right_hip_pitch            -30 … 70     -35 … 75  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+right_knee                 -90 … 90     -95 … 95  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+right_ankle                -90 … 90     -95 … 95  13.37  0.00     3.23    32.9    0.027    0.56    0.068
+
+leg: thigh 78.7 mm, shin 78.7 mm, ankle→sole 38.8 mm, hip-pitch→sole straight 196.1 mm, hip spacing 70 mm
+foot: 103 × 41 mm, sole 8.0 mm, friction [1.0, 0.005, 0.0001]
+stand (home, settled 1 s): base 161 mm, trunk site 249 mm, head top 483 mm
+  CoM (-31, -0, 205) mm; support x -62…30 mm, y -95…94 mm; CoM margin to edge 31 mm
+  holding torque N·m: left_hip_yaw -0.00, left_hip_roll +0.13, left_hip_pitch -0.08, left_knee -0.44, left_ankle +0.08, neck_pitch +0.08, head_pitch +0.04, head_yaw +0.01, head_roll +0.01, right_hip_yaw -0.00, right_hip_roll -0.16, right_hip_pitch +0.12, right_knee -0.50, right_ankle +0.03

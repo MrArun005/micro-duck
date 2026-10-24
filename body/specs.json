@@ -1,0 +1,523 @@
+{
+ "bodies": [
+  {
+   "name": "trunk_assembly",
+   "mass": 0.698526,
+   "inertia": [
+    0.0034449,
+    0.00292719,
+    0.00167607
+   ],
+   "com_local": [
+    -0.0483259,
+    -9.97823e-05,
+    0.0384971
+   ]
+  },
+  {
+   "name": "hip_roll_assembly",
+   "mass": 0.06648,
+   "inertia": [
+    2.81818e-05,
+    2.44554e-05,
+    1.42544e-05
+   ],
+   "com_local": [
+    0.000795081,
+    -5.46541e-06,
+    -0.03306
+   ]
+  },
+  {
+   "name": "left_roll_to_pitch_assembly",
+   "mass": 0.07516,
+   "inertia": [
+    4.13874e-05,
+    2.82416e-05,
+    2.5117e-05
+   ],
+   "com_local": [
+    0.0508042,
+    -0.00041105,
+    0.0204704
+   ]
+  },
+  {
+   "name": "knee_and_ankle_assembly",
+   "mass": 0.12407,
+   "inertia": [
+    0.000228502,
+    0.000216625,
+    7.02745e-05
+   ],
+   "com_local": [
+    0.00253369,
+    -0.0390636,
+    0.0102776
+   ]
+  },
+  {
+   "name": "knee_and_ankle_assembly_2",
+   "mass": 0.07259,
+   "inertia": [
+    4.99575e-05,
+    4.23935e-05,
+    1.8727e-05
+   ],
+   "com_local": [
+    5.01859e-06,
+    -0.0577465,
+    0.0181136
+   ]
+  },
+  {
+   "name": "foot_assembly",
+   "mass": 0.07524,
+   "inertia": [
+    6.74949e-05,
+    6.06095e-05,
+    1.86964e-05
+   ],
+   "com_local": [
+    0.0110718,
+    -0.0246608,
+    0.0190626
+   ]
+  },
+  {
+   "name": "neck_pitch_assembly",
+   "mass": 0.06618,
+   "inertia": [
+    3.49456e-05,
+    2.80043e-05,
+    1.70231e-05
+   ],
+   "com_local": [
+    -5.63137e-06,
+    0.0492968,
+    0.0181786
+   ]
+  },
+  {
+   "name": "head_pitch_to_yaw",
+   "mass": 0.0169378,
+   "inertia": [
+    9.7861e-06,
+    8.03124e-06,
+    4.28979e-06
+   ],
+   "com_local": [
+    -0.00766247,
+    0.026015,
+    0.0186681
+   ]
+  },
+  {
+   "name": "neck_yaw_assembly",
+   "mass": 0.0918099,
+   "inertia": [
+    7.08927e-05,
+    6.94935e-05,
+    3.06804e-05
+   ],
+   "com_local": [
+    0.00412907,
+    3.95745e-06,
+    -0.0222828
+   ]
+  },
+  {
+   "name": "head_assembly",
+   "mass": 0.406607,
+   "inertia": [
+    0.0024525,
+    0.00168693,
+    0.00107325
+   ],
+   "com_local": [
+    0.00815416,
+    -0.00390754,
+    0.0227726
+   ]
+  },
+  {
+   "name": "hip_roll_assembly_2",
+   "mass": 0.06648,
+   "inertia": [
+    2.81818e-05,
+    2.44554e-05,
+    1.42544e-05
+   ],
+   "com_local": [
+    0.000795081,
+    -5.46541e-06,
+    -0.03306
+   ]
+  },
+  {
+   "name": "right_roll_to_pitch_assembly",
+   "mass": 0.07516,
+   "inertia": [
+    4.13873e-05,
+    2.82413e-05,
+    2.51163e-05
+   ],
+   "com_local": [
+    -0.0508042,
+    -0.000420742,
+    0.0204704
+   ]
+  },
+  {
+   "name": "knee_and_ankle_assembly_3",
+   "mass": 0.12407,
+   "inertia": [
+    0.000228782,
+    0.00021758,
+    7.09526e-05
+   ],
+   "com_local": [
+    0.00253369,
+    0.0390636,
+    0.010809
+   ]
+  },
+  {
+   "name": "knee_and_ankle_assembly_4",
+   "mass": 0.07259,
+   "inertia": [
+    4.99575e-05,
+    4.23935e-05,
+    1.8727e-05
+   ],
+   "com_local": [
+    5.01859e-06,
+    -0.0577465,
+    0.0181136
+   ]
+  },
+  {
+   "name": "foot_assembly_2",
+   "mass": 0.07524,
+   "inertia": [
+    6.74949e-05,
+    6.06095e-05,
+    1.86964e-05
+   ],
+   "com_local": [
+    0.0110718,
+    -0.0246608,
+    0.0190626
+   ]
+  }
+ ],
+ "joints": [
+  {
+   "name": "left_hip_yaw",
+   "range_deg": [
+    -30.0,
+    30.0
+   ],
+   "hard_stop_deg": [
+    -35.0,
+    35.0
+   ],
+   "actuator": "left_hip_yaw",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "left_hip_roll",
+   "range_deg": [
+    -25.0,
+    25.0
+   ],
+   "hard_stop_deg": [
+    -30.0,
+    30.0
+   ],
+   "actuator": "left_hip_roll",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "left_hip_pitch",
+   "range_deg": [
+    -70.0,
+    30.0
+   ],
+   "hard_stop_deg": [
+    -75.0,
+    35.0
+   ],
+   "actuator": "left_hip_pitch",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "left_knee",
+   "range_deg": [
+    -90.0,
+    90.0
+   ],
+   "hard_stop_deg": [
+    -95.0,
+    95.0
+   ],
+   "actuator": "left_knee",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "left_ankle",
+   "range_deg": [
+    -90.0,
+    90.0
+   ],
+   "hard_stop_deg": [
+    -95.0,
+    95.0
+   ],
+   "actuator": "left_ankle",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "neck_pitch",
+   "range_deg": [
+    -20.0,
+    65.0
+   ],
+   "hard_stop_deg": [
+    -25.0,
+    70.0
+   ],
+   "actuator": "neck_pitch",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "head_pitch",
+   "range_deg": [
+    -45.0,
+    45.0
+   ],
+   "hard_stop_deg": [
+    -50.0,
+    50.0
+   ],
+   "actuator": "head_pitch",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "head_yaw",
+   "range_deg": [
+    -160.0,
+    160.0
+   ],
+   "hard_stop_deg": [
+    -165.0,
+    165.0
+   ],
+   "actuator": "head_yaw",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "head_roll",
+   "range_deg": [
+    -30.0,
+    30.0
+   ],
+   "hard_stop_deg": [
+    -35.0,
+    35.0
+   ],
+   "actuator": "head_roll",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "right_hip_yaw",
+   "range_deg": [
+    -30.0,
+    30.0
+   ],
+   "hard_stop_deg": [
+    -35.0,
+    35.0
+   ],
+   "actuator": "right_hip_yaw",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "right_hip_roll",
+   "range_deg": [
+    -25.0,
+    25.0
+   ],
+   "hard_stop_deg": [
+    -30.0,
+    30.0
+   ],
+   "actuator": "right_hip_roll",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "right_hip_pitch",
+   "range_deg": [
+    -30.0,
+    70.0
+   ],
+   "hard_stop_deg": [
+    -35.0,
+    75.0
+   ],
+   "actuator": "right_hip_pitch",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "right_knee",
+   "range_deg": [
+    -90.0,
+    90.0
+   ],
+   "hard_stop_deg": [
+    -95.0,
+    95.0
+   ],
+   "actuator": "right_knee",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  },
+  {
+   "name": "right_ankle",
+   "range_deg": [
+    -90.0,
+    90.0
+   ],
+   "hard_stop_deg": [
+    -95.0,
+    95.0
+   ],
+   "actuator": "right_ankle",
+   "kp": 13.37,
+   "kv": 0.0,
+   "force_limit": 3.23,
+   "armature": 0.027,
+   "damping": 0.56,
+   "frictionloss": 0.068
+  }
+ ],
+ "total_mass": 2.1071406999999995,
+ "leg": {
+  "thigh": 0.07865006357276512,
+  "shin": 0.07865006357276513,
+  "ankle_to_sole": 0.03883962498969272,
+  "hip_pitch_to_sole_straight": 0.19613962498969267,
+  "hip_yaw_to_sole_straight": 0.24215462498969267,
+  "hip_spacing": 0.07
+ },
+ "foot": {
+  "length": 0.10311189255179184,
+  "width": 0.04129867914943264,
+  "sole_thickness": 0.008014410872207858,
+  "friction": [
+   1.0,
+   0.005,
+   0.0001
+  ]
+ },
+ "stand": {
+  "base_height": 0.16127710954608687,
+  "trunk_site_height": 0.24925345573149832,
+  "head_top": 0.4834161339041542,
+  "com": [
+   -0.03141748577546108,
+   -0.00047047097283132284,
+   0.20542040140898513
+  ],
+  "com_height": 0.20542040140898513,
+  "support_x": [
+   -0.0621,
+   0.03046
+  ],
+  "support_y": [
+   -0.09508,
+   0.09377
+  ],
+  "com_margin": 0.03050866438773624,
+  "joint_torque": {
+   "left_hip_yaw": -0.003,
+   "left_hip_roll": 0.129,
+   "left_hip_pitch": -0.081,
+   "left_knee": -0.44,
+   "left_ankle": 0.084,
+   "neck_pitch": 0.079,
+   "head_pitch": 0.043,
+   "head_yaw": 0.006,
+   "head_roll": 0.006,
+   "right_hip_yaw": -0.003,
+   "right_hip_roll": -0.156,
+   "right_hip_pitch": 0.125,
+   "right_knee": -0.501,
+   "right_ankle": 0.027
+  }
+ }
+}

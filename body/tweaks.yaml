@@ -1,0 +1,84 @@
+# Overrides applied on top of the untouched upstream Open Duck Mini v2 model.
+#   python body/build_model.py        -> writes body/model/duck.xml
+# Every tweak says why. Section A is ON by default (clearly needed); section B is OFF until the
+# owner measures the real robot and decides (see REVIEW.md for the reasoning behind each).
+
+# ---------------------------------------------------------------- A. applied by default
+
+# Upstream only lets the two TPU soles touch anything. Trunk, head, thighs and shins pass through
+# the floor, so sitting, lying, falling and getting up cannot be simulated at all.
+# Turns the real printed shells into colliders (MuJoCo uses each part's convex hull).
+# Legs also collide with each other (no crossing legs through each other while walking), and the
+# head collides with the trunk (with neck pitch 65° or head pitch 45° the head shell reaches the body).
+collision_parts:
+  enabled: true
+  parts:
+    trunk_assembly: [body_front, body_back, body_middle_top, body_middle_bottom, trunk_bottom, trunk_top]
+    head_assembly: [head, head_bot_sheet, left_antenna_holder, right_antenna_holder]
+    knee_and_ankle_assembly: [left_cache]              # left thigh (cover + servo)
+    knee_and_ankle_assembly_3: [right_cache]           # right thigh
+    knee_and_ankle_assembly_2: [left_knee_to_ankle_left_sheet, left_knee_to_ankle_right_sheet, leg_spacer]   # left shin
+    knee_and_ankle_assembly_4: [left_knee_to_ankle_left_sheet, left_knee_to_ankle_right_sheet, leg_spacer]   # right shin
+    foot_assembly: [foot_top, foot_side]               # top of the foot (soles already collide)
+    foot_assembly_2: [foot_top, foot_side]
+
+# Upstream's "home" keyframe puts the soles 17 mm under the floor, so every episode starts with a
+# solver kick. Recompute the base height so the soles just touch.
+home_on_floor: true
+
+# Upstream puts the IMU site at (-80, 0, 50) mm; the BNO055 in the CAD sits at (-87.1, 0, 41.8) mm.
+# Orientation readings don't care, but accelerometer readings do (lever arm). Match the real board.
+imu_at_bno055: true
+
+# Upstream makes every joint limit a rigid stop exactly at the servo's command limit. In the sim a
+# leg resting on that stop holds the robot's weight for free (knee torque 0.02 N·m at 90° vs 0.6 N·m
+# just before it); on the real robot the limit is software, and the servo has to hold the load.
+# Keep the command range, move the rigid stop a few degrees beyond it so the servo does the work.
+hard_stop_margin_deg: 5
+
+# ---------------------------------------------------------------- B. optional (owner decides)
+
+# Knee flexion is capped at 90 deg upstream, which is only 9 deg more than the standing pose (81 deg):
+# the duck can lower its body just 7 mm. A sleep/deep-crouch pose needs ~125 deg. Hull check shows
+# the thigh cover first touches the foot at ~138 deg. CHECK ON THE REAL LEG before enabling:
+# servo off, fold the knee by hand, measure where parts touch, use that minus 10 deg.
+joint_ranges_deg:
+  # left_knee: [-90, 125]
+  # right_knee: [-90, 125]
+
+# The shopping list buys STS3215 7.4 V (datasheet stall 19.5 kg·cm = 1.91 N·m). Upstream clips at
+# 3.23 N·m (33 kg·cm, the 12 V variant's class). If your servos are the 19.5 kg·cm ones, set 1.91.
+# env.py randomizes the limit between 1.9 and 3.23 N·m either way.
+force_limit_nm: null
+
+# Servo model overrides (upstream BAM-identified values are kp 13.37, damping 0.56,
+# frictionloss 0.068, armature 0.027). Only change after measuring your own servos with BAM.
+servo: {}
+#   kp: 13.37
+#   damping: 0.56
+#   frictionloss: 0.068
+#   armature: 0.027
+
+# Gear backlash: adds a ±0.5 deg free joint after each leg servo, like upstream's backlash model.
+# Slower to simulate; worth it for the final stage of walking training.
+backlash: false
+
+# Measured masses. Weigh each sub-assembly of YOUR printed robot and put the numbers here
+# (inertia is scaled with the mass). Upstream CAD total is 2.107 kg.
+masses_kg: {}
+#   trunk_assembly: 0.70
+#   head_assembly: 0.41
+
+# Extra parts the CAD doesn't have (Bolt add-ons: foot switches, bigger battery, mic...).
+# Each: body, mass_kg, pos_m (in that body's frame).
+payloads: []
+#   - {name: foot_switch_l, body: foot_assembly, mass_kg: 0.004, pos_m: [0.01, -0.03, 0.02]}
+
+# Floor friction used by the default scene (upstream 0.6, floor has priority so this wins).
+floor_friction: 0.6
+
+# Solver. Upstream uses 1 iteration (tuned for thousands of GPU robots). Stand-hold results are the
+# same with 1 or 100 iterations; raise it if lying/get-up contacts look jittery on CPU.
+solver:
+  iterations: 1
+  ls_iterations: 5

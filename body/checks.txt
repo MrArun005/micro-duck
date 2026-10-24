@@ -1,0 +1,27 @@
+STAND HOLD 5 s × 10 (joint noise σ=0.05 rad, tilt ±3°): max tilt 4.35°, worst end tilt 0.31°, worst height error 1.1 mm, worst drift over last 4 s 1.71 mm, base moved 23.1 mm in total, 0.62 mm over the last 4 s, falls 0
+
+CROUCH (feet flat, servos hold):
+  knee cmd    78° (reached   81°): base  159 mm, trunk bottom  121 mm, tilt  3.7°, knee torque 0.58 N·m (30% of 7.4 V stall)
+  knee cmd    90° (reached   93°): base  147 mm, trunk bottom  109 mm, tilt  4.0°, knee torque 0.63 N·m (33% of 7.4 V stall)
+  knee cmd   103°: beyond the knee joint limit
+  knee cmd   115°: beyond the knee joint limit
+  knee cmd   125°: beyond the knee joint limit
+
+SIT-TO-STAND (scripted ramp, deepest crouch -> home):
+  1.0 s from knee 90°: peak servo torque 0.87 N·m (45% of 7.4 V stall), end tilt 0.5°, height 161 mm
+  0.5 s from knee 90°: peak servo torque 1.03 N·m (54% of 7.4 V stall), end tilt 0.8°, height 161 mm
+  0.3 s from knee 90°: peak servo torque 1.26 N·m (66% of 7.4 V stall), end tilt 0.7°, height 161 mm
+
+SELF-COLLISION (convex hulls): always touching: head_assembly / head_pitch_to_yaw; left_roll_to_pitch_assembly / trunk_assembly; right_roll_to_pitch_assembly / trunk_assembly
+  knee 78°: clear
+  knee 90°: clear
+  knee 103°: clear
+  knee 115°: clear
+  knee 126°: clear
+  knee 138°: foot_assembly / knee_and_ankle_assembly; foot_assembly_2 / knee_and_ankle_assembly_3
+  knee 149°: foot_assembly / knee_and_ankle_assembly; foot_assembly_2 / knee_and_ankle_assembly_3
+
+LYING (dropped from 30 cm, 2 s):
+  on_back: lowest colliding part -0 mm, trunk CoM 106 mm, rests on floor; touching: trunk_assembly
+  on_front: lowest colliding part -0 mm, trunk CoM 116 mm, rests on floor; touching: foot_assembly, foot_assembly_2, head_assembly
+  on_side: lowest colliding part -0 mm, trunk CoM 106 mm, rests on floor; touching: head_assembly, knee_and_ankle_assembly_3

@@ -1,0 +1,236 @@
+{
+ "model": "body/model/duck.xml",
+ "solver": {
+  "iterations": 1,
+  "ls_iterations": 5,
+  "timestep": 0.002
+ },
+ "stand_hold": {
+  "ref_height_mm": 161.27710954608688,
+  "trials": [
+   {
+    "start_tilt": 2.1790735340990977,
+    "max_tilt": 2.559650305742176,
+    "end_tilt": 0.1709092191402103,
+    "end_height_err_mm": -0.9808440727212542,
+    "height_drift_last4s_mm": -1.1776144322252213,
+    "xy_drift_mm": 12.376981360902711,
+    "slide_last4s_mm": 0.25712683172757844,
+    "fell": false
+   },
+   {
+    "start_tilt": 1.32893004116489,
+    "max_tilt": 1.32893004116489,
+    "end_tilt": 0.23262184853424284,
+    "end_height_err_mm": -0.9217731349675795,
+    "height_drift_last4s_mm": -1.4016520620716288,
+    "xy_drift_mm": 5.952741581159135,
+    "slide_last4s_mm": 0.06570572518385517,
+    "fell": false
+   },
+   {
+    "start_tilt": 1.7225898449318426,
+    "max_tilt": 1.762563242182656,
+    "end_tilt": 0.17738086775138648,
+    "end_height_err_mm": -1.0259263003426222,
+    "height_drift_last4s_mm": -0.8902275729162912,
+    "xy_drift_mm": 4.592856197376993,
+    "slide_last4s_mm": 0.15434775375320084,
+    "fell": false
+   },
+   {
+    "start_tilt": 2.6526786630389756,
+    "max_tilt": 4.352400981888549,
+    "end_tilt": 0.30957135175246997,
+    "end_height_err_mm": -0.8427838053037817,
+    "height_drift_last4s_mm": -1.7056485152887046,
+    "xy_drift_mm": 23.094567779972785,
+    "slide_last4s_mm": 0.547282651827171,
+    "fell": false
+   },
+   {
+    "start_tilt": 1.2668572679385075,
+    "max_tilt": 1.3016726055471166,
+    "end_tilt": 0.20681389094704397,
+    "end_height_err_mm": -1.07843724132628,
+    "height_drift_last4s_mm": -0.6175272450138214,
+    "xy_drift_mm": 11.361742580694534,
+    "slide_last4s_mm": 0.19816069310086842,
+    "fell": false
+   },
+   {
+    "start_tilt": 2.541180958700819,
+    "max_tilt": 2.541180958700819,
+    "end_tilt": 0.10407104816631377,
+    "end_height_err_mm": -1.0730929500247233,
+    "height_drift_last4s_mm": -0.7671701618475746,
+    "xy_drift_mm": 12.366354346681211,
+    "slide_last4s_mm": 0.547898886620371,
+    "fell": false
+   },
+   {
+    "start_tilt": 0.9341401271751746,
+    "max_tilt": 0.9341401271751746,
+    "end_tilt": 0.27753404644575885,
+    "end_height_err_mm": -1.0805334914680276,
+    "height_drift_last4s_mm": -0.5723307155346968,
+    "xy_drift_mm": 5.741937115828746,
+    "slide_last4s_mm": 0.5347697948674456,
+    "fell": false
+   },
+   {
+    "start_tilt": 2.754465856184588,
+    "max_tilt": 2.754465856184588,
+    "end_tilt": 0.15852890263290226,
+    "end_height_err_mm": -0.996942910133608,
+    "height_drift_last4s_mm": -1.0924783136828653,
+    "xy_drift_mm": 13.35879984799587,
+    "slide_last4s_mm": 0.3045259357831629,
+    "fell": false
+   },
+   {
+    "start_tilt": 1.2159124239588164,
+    "max_tilt": 1.2159124239588164,
+    "end_tilt": 0.2806875280523602,
+    "end_height_err_mm": -0.8554018771310123,
+    "height_drift_last4s_mm": -1.7088931165343824,
+    "xy_drift_mm": 13.975294153235035,
+    "slide_last4s_mm": 0.6201826565708289,
+    "fell": false
+   },
+   {
+    "start_tilt": 1.1043387277939232,
+    "max_tilt": 3.2634702031945184,
+    "end_tilt": 0.31178209423756514,
+    "end_height_err_mm": -0.8940073969123663,
+    "height_drift_last4s_mm": -1.3766984513730596,
+    "xy_drift_mm": 17.88305793274603,
+    "slide_last4s_mm": 0.5666190421129664,
+    "fell": false
+   }
+  ],
+  "summary": {
+   "max_tilt": 4.352400981888549,
+   "worst_end_tilt": 0.31178209423756514,
+   "worst_height_err_mm": 1.0805334914680276,
+   "worst_drift_mm": 1.7088931165343824,
+   "worst_xy_drift_mm": 23.094567779972785,
+   "worst_slide_last4s_mm": 0.6201826565708289,
+   "falls": 0
+  }
+ },
+ "crouch": [
+  {
+   "knee_cmd_deg": 78.49521793292278,
+   "reachable": true,
+   "knee_actual_deg": 80.92822834318886,
+   "base_mm": 158.7362496327168,
+   "trunk_bottom_mm": 120.76804241213495,
+   "tilt": 3.721174710820596,
+   "knee_torque": 0.5822227863113056,
+   "max_torque": 0.5822227863113056
+  },
+  {
+   "knee_cmd_deg": 89.95437383553924,
+   "reachable": true,
+   "knee_actual_deg": 92.6328617043781,
+   "base_mm": 147.46311561802833,
+   "trunk_bottom_mm": 109.31488162520338,
+   "tilt": 3.974538960923727,
+   "knee_torque": 0.634590474786286,
+   "max_torque": 0.634590474786286
+  },
+  {
+   "knee_cmd_deg": 103.13240312354819,
+   "reachable": false
+  },
+  {
+   "knee_cmd_deg": 114.59155902616465,
+   "reachable": false
+  },
+  {
+   "knee_cmd_deg": 124.90479933851947,
+   "reachable": false
+  }
+ ],
+ "sit_to_stand": [
+  {
+   "seconds": 1.0,
+   "from_knee_deg": 90.00021045914971,
+   "peak_torque": 0.8687987577484044,
+   "saturated": false,
+   "end_tilt": 0.5465368431471702,
+   "end_height_mm": 160.54545309380717
+  },
+  {
+   "seconds": 0.5,
+   "from_knee_deg": 90.00021045914971,
+   "peak_torque": 1.0341959769429891,
+   "saturated": false,
+   "end_tilt": 0.7734683170177615,
+   "end_height_mm": 160.89968990995092
+  },
+  {
+   "seconds": 0.3,
+   "from_knee_deg": 90.00021045914971,
+   "peak_torque": 1.2555810756525183,
+   "saturated": false,
+   "end_tilt": 0.691546495734665,
+   "end_height_mm": 160.89316350691993
+  }
+ ],
+ "self_collision": {
+  "always": [
+   "head_assembly / head_pitch_to_yaw",
+   "left_roll_to_pitch_assembly / trunk_assembly",
+   "right_roll_to_pitch_assembly / trunk_assembly"
+  ],
+  "new_by_knee_deg": {
+   "78": [],
+   "90": [],
+   "103": [],
+   "115": [],
+   "126": [],
+   "138": [
+    "foot_assembly / knee_and_ankle_assembly",
+    "foot_assembly_2 / knee_and_ankle_assembly_3"
+   ],
+   "149": [
+    "foot_assembly / knee_and_ankle_assembly",
+    "foot_assembly_2 / knee_and_ankle_assembly_3"
+   ]
+  }
+ },
+ "lying": {
+  "on_back": {
+   "trunk_com_z_mm": 105.63770950397475,
+   "lowest_part_mm": -0.04818082437212101,
+   "sinks_through_floor": false,
+   "touching": [
+    "trunk_assembly"
+   ],
+   "visual_parts_below_floor": []
+  },
+  "on_front": {
+   "trunk_com_z_mm": 116.01821961446102,
+   "lowest_part_mm": -0.0988211163369529,
+   "sinks_through_floor": false,
+   "touching": [
+    "foot_assembly",
+    "foot_assembly_2",
+    "head_assembly"
+   ],
+   "visual_parts_below_floor": []
+  },
+  "on_side": {
+   "trunk_com_z_mm": 106.47050647424288,
+   "lowest_part_mm": -0.14607362708623367,
+   "sinks_through_floor": false,
+   "touching": [
+    "head_assembly",
+    "knee_and_ankle_assembly_3"
+   ],
+   "visual_parts_below_floor": []
+  }
+ }
+}

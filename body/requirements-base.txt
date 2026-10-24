@@ -1,0 +1,12 @@
+# CPU-only PyTorch keeps the download small; on a machine with an NVIDIA GPU,
+# install torch from https://pytorch.org instead.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.14.1
+mujoco==3.17.0
+gymnasium==1.4.0
+stable-baselines3==2.9.0
+numpy==2.5.4
+tensorboard==2.21.0
+imageio==2.38.1
+imageio-ffmpeg==0.6.0
+pillow==13.0.0

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Micro Duck Sim</title>
+<meta name="description" content="A small two-legged duck robot that balances with real physics: it sleeps, wakes up, stands, walks, runs, and gets back up when it falls.">
+<style>
+  :root {
+    --bg: #f6f5f1; --surface: #ffffff; --surface-2: #eeece6; --text: #1d1d1b; --muted: #615f58; --line: #d9d6cc;
+    --accent: #e8590c; --accent-ink: #ffffff; --blue: #1c6dd0; --green: #2b8a3e;
+    --scene-bg: #e4e7e0; --scene-floor: #eef0ea; --scene-grid: #8d978c; --eye: #4fd6ff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15161a; --surface: #1e2026; --surface-2: #272a31; --text: #ecebe6; --muted: #a3a29b; --line: #363942;
+      --accent: #ff8a3d; --accent-ink: #1a1208; --blue: #6aa8ff; --green: #69c47a;
+      --scene-bg: #1a1c21; --scene-floor: #23262c; --scene-grid: #59606b; --eye: #66e0ff;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #15161a; --surface: #1e2026; --surface-2: #272a31; --text: #ecebe6; --muted: #a3a29b; --line: #363942;
+    --accent: #ff8a3d; --accent-ink: #1a1208; --blue: #6aa8ff; --green: #69c47a;
+    --scene-bg: #1a1c21; --scene-floor: #23262c; --scene-grid: #59606b; --eye: #66e0ff;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; display: flex; flex-direction: column; }
+  a { color: var(--blue); }
+  header { display: flex; align-items: center; gap: 12px; padding: 0 16px; height: 52px; border-bottom: 1px solid var(--line); flex: none; }
+  header h1 { font-size: 1.05rem; margin: 0; margin-right: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  header a { font-size: 0.9em; color: var(--muted); text-decoration: none; white-space: nowrap; }
+  header a:hover { color: var(--text); }
+  main { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 340px; }
+  @media (max-width: 860px) {
+    body { height: auto; display: block; }
+    main { display: block; }
+    .stage { height: 58vh; min-height: 320px; }
+  }
+  .stage { position: relative; min-height: 0; overflow: hidden; background: var(--scene-bg); }
+  #scene { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+  #scene:active { cursor: grabbing; }
+  .overlay { position: absolute; pointer-events: none; font-size: 0.82rem; color: var(--muted); }
+  #live { top: 12px; left: 12px; background: color-mix(in srgb, var(--surface) 85%, transparent); border: 1px solid var(--line); border-radius: 10px; padding: 6px 10px; display: grid; grid-template-columns: auto auto; gap: 0 10px; font-variant-numeric: tabular-nums; }
+  #live b { color: var(--text); font-weight: 600; }
+  #state { color: var(--accent); }
+  .hint { bottom: 10px; left: 12px; right: 12px; }
+  #say { top: 12px; right: 12px; background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: 14px; padding: 6px 12px; font-size: 0.92rem; opacity: 0; transition: opacity .25s; }
+  #say.show { opacity: 1; }
+  #legend { bottom: 34px; left: 12px; background: color-mix(in srgb, var(--surface) 85%, transparent); border: 1px solid var(--line); border-radius: 10px; padding: 6px 10px; display: grid; gap: 2px; }
+  #legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+  #nogl { display: none; position: absolute; inset: 0; place-items: center; text-align: center; padding: 24px; color: var(--muted); }
+
+  .panel { border-left: 1px solid var(--line); background: var(--surface); overflow-y: auto; min-height: 0; }
+  @media (max-width: 860px) { .panel { border-left: none; border-top: 1px solid var(--line); } }
+  .section { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  .section h2 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 8px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  button { font: inherit; font-size: 0.86rem; cursor: pointer; border-radius: 999px; padding: 6px 12px; border: 1px solid var(--line); background: var(--surface); color: var(--text); min-height: 34px; }
+  button:hover { border-color: var(--accent); }
+  button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+  button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  kbd { font: 0.78rem ui-monospace, monospace; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 0 5px; background: var(--surface-2); }
+  .small { font-size: 0.84rem; color: var(--muted); margin: 0; }
+  .small + .small { margin-top: 6px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Micro Duck, a balancing robot sim</h1>
+  <a href="README.md">How it works</a>
+  <a href="../index.html">Robot guide</a>
+</header>
+<main>
+  <div class="stage">
+    <canvas id="scene" aria-label="3D view of the micro duck. Drag to orbit, scroll or pinch to zoom, click the duck to push it."></canvas>
+    <div id="live" class="overlay" aria-live="polite">
+      <span>state</span><b id="state">sleeping</b>
+      <span>speed</span><b id="speed">0.00 m/s</b>
+      <span>height</span><b id="height">0 cm</b>
+      <span>steps · falls</span><b><span id="steps">0</span> · <span id="falls">0</span></b>
+    </div>
+    <div id="say" class="overlay" aria-hidden="true"></div>
+    <div id="legend" class="overlay" hidden>
+      <span><i style="background:#2f9e44"></i>support area (feet on the ground)</span>
+      <span><i style="background:#f08a1c"></i>capture point (where a foot must land to stop)</span>
+      <span><i style="background:#1c7ed6"></i>centre of pressure (ZMP)</span>
+    </div>
+    <div class="overlay hint">Drag to orbit · scroll to zoom · click the duck to push it</div>
+    <div id="nogl">The 3D view couldn't start (your browser needs WebGL).</div>
+  </div>
+
+  <aside class="panel">
+    <div class="section">
+      <h2>Wake and rest</h2>
+      <div class="chips">
+        <button class="primary" data-act="wake">Wake up</button>
+        <button data-act="sleep">Sleep</button>
+        <button data-act="stand">Stand up</button>
+        <button data-act="sit">Sit</button>
+      </div>
+    </div>
+    <div class="section">
+      <h2>Move</h2>
+      <div class="chips">
+        <button data-act="walk">Walk</button>
+        <button data-act="run">Run</button>
+        <button data-act="left">↺ Turn left</button>
+        <button data-act="right">Turn right ↻</button>
+        <button data-act="stop">Stop</button>
+      </div>
+    </div>
+    <div class="section">
+      <h2>Play</h2>
+      <div class="chips">
+        <button data-act="look">Look around</button>
+        <button data-act="dance">Dance</button>
+        <button data-act="push">Push</button>
+        <button data-act="shove">Big shove</button>
+        <button id="debugBtn" aria-pressed="false">Physics overlay</button>
+      </div>
+    </div>
+    <div class="section">
+      <h2>Keyboard</h2>
+      <p class="small"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrows drive · hold <kbd>Shift</kbd> to run · <kbd>Space</kbd> sleeps or wakes it.</p>
+    </div>
+    <div class="section">
+      <h2>What you're seeing</h2>
+      <p class="small">The body is a 2 kg inverted pendulum on two legs. The ankles can only shift the pressure inside the soles, so to stop after a push the duck has to put a foot down near the capture point. Too hard a shove and it can't reach: it tumbles as a rigid body with ground contact and friction, then rolls itself back up with limited motor torque.</p>
+      <p class="small">Walking is a model-based controller, not a trained policy (yet).</p>
+    </div>
+  </aside>
+</main>
+
+<script src="vendor/three.min.js"></script>
+<script src="js/duck.js"></script>
+<script src="js/render.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

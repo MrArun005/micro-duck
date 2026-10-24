@@ -1,0 +1,10 @@
+{
+ "steps": null,
+ "note": "stopped early at ~1.1M steps: passed 5/5 at 0.5M and 1M",
+ "exam": {
+  "stand": {
+   "success": 1.0,
+   "mean_reward": 437.7
+  }
+ }
+}

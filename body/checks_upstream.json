@@ -1,0 +1,320 @@
+{
+ "model": "body/model/upstream/scene_flat_terrain.xml",
+ "solver": {
+  "iterations": 1,
+  "ls_iterations": 5,
+  "timestep": 0.002
+ },
+ "stand_hold": {
+  "ref_height_mm": 161.27710953362126,
+  "trials": [
+   {
+    "start_tilt": 2.1790735340990977,
+    "max_tilt": 2.559650219757067,
+    "end_tilt": 0.17090920393969333,
+    "end_height_err_mm": -0.9808440841580224,
+    "height_drift_last4s_mm": -1.1776143726335286,
+    "xy_drift_mm": 12.37698145836768,
+    "slide_last4s_mm": 0.2571268698738205,
+    "fell": false
+   },
+   {
+    "start_tilt": 1.32893004116489,
+    "max_tilt": 1.32893004116489,
+    "end_tilt": 0.23262185041907127,
+    "end_height_err_mm": -0.9217731310416089,
+    "height_drift_last4s_mm": -1.4016520497529272,
+    "xy_drift_mm": 5.952741510958004,
+    "slide_last4s_mm": 0.06570570954863875,
+    "fell": false
+   },
+   {
+    "start_tilt": 1.7225898449318426,
+    "max_tilt": 1.7856705835156217,
+    "end_tilt": 0.19622784439096017,
+    "end_height_err_mm": -0.9988229539280025,
+    "height_drift_last4s_mm": -1.0129908979807367,
+    "xy_drift_mm": 4.333824438539158,
+    "slide_last4s_mm": 0.21659203901635798,
+    "fell": false
+   },
+   {
+    "start_tilt": 2.6526786630389756,
+    "max_tilt": 4.299053595681109,
+    "end_tilt": 0.3132632935647335,
+    "end_height_err_mm": -0.8339683969063594,
+    "height_drift_last4s_mm": -1.7528528064751636,
+    "xy_drift_mm": 23.052530799472095,
+    "slide_last4s_mm": 0.5571132067088816,
+    "fell": false
+   },
+   {
+    "start_tilt": 1.2668572679385075,
+    "max_tilt": 1.2668572679385075,
+    "end_tilt": 0.1913708085614179,
+    "end_height_err_mm": -1.0837851382521357,
+    "height_drift_last4s_mm": -0.6118069940731496,
+    "xy_drift_mm": 12.09827832239835,
+    "slide_last4s_mm": 0.23083954888262978,
+    "fell": false
+   },
+   {
+    "start_tilt": 2.541180958700819,
+    "max_tilt": 2.541180958700819,
+    "end_tilt": 0.10791181989049091,
+    "end_height_err_mm": -1.0655664066215598,
+    "height_drift_last4s_mm": -0.8036362826019661,
+    "xy_drift_mm": 12.039014258513378,
+    "slide_last4s_mm": 0.5091357579714295,
+    "fell": false
+   },
+   {
+    "start_tilt": 0.9341401271751746,
+    "max_tilt": 0.9341401271751746,
+    "end_tilt": 0.27753404459016434,
+    "end_height_err_mm": -1.0805334850278459,
+    "height_drift_last4s_mm": -0.5723307075823636,
+    "xy_drift_mm": 5.741937347438785,
+    "slide_last4s_mm": 0.5347697821105021,
+    "fell": false
+   },
+   {
+    "start_tilt": 2.754465856184588,
+    "max_tilt": 2.754465856184588,
+    "end_tilt": 0.1585289075896446,
+    "end_height_err_mm": -0.9969429037427757,
+    "height_drift_last4s_mm": -1.0924783042161046,
+    "xy_drift_mm": 13.358799769299036,
+    "slide_last4s_mm": 0.3045259261662074,
+    "fell": false
+   },
+   {
+    "start_tilt": 1.2159124239588164,
+    "max_tilt": 1.2236951107369816,
+    "end_tilt": 0.3085399846149484,
+    "end_height_err_mm": -0.8345384523716637,
+    "height_drift_last4s_mm": -1.7776522071251133,
+    "xy_drift_mm": 13.530131407911641,
+    "slide_last4s_mm": 0.6360929596364269,
+    "fell": false
+   },
+   {
+    "start_tilt": 1.1043387277939232,
+    "max_tilt": 3.263470664092292,
+    "end_tilt": 0.3117821043772832,
+    "end_height_err_mm": -0.8940073855350228,
+    "height_drift_last4s_mm": -1.3766984599024035,
+    "xy_drift_mm": 17.883058546118626,
+    "slide_last4s_mm": 0.5666190704992463,
+    "fell": false
+   }
+  ],
+  "summary": {
+   "max_tilt": 4.299053595681109,
+   "worst_end_tilt": 0.3132632935647335,
+   "worst_height_err_mm": 1.0837851382521357,
+   "worst_drift_mm": 1.7776522071251133,
+   "worst_xy_drift_mm": 23.052530799472095,
+   "worst_slide_last4s_mm": 0.6360929596364269,
+   "falls": 0
+  }
+ },
+ "crouch": [
+  {
+   "knee_cmd_deg": 78.49521793292278,
+   "reachable": true,
+   "knee_actual_deg": 80.939197161879,
+   "base_mm": 158.72323122217543,
+   "trunk_bottom_mm": 120.74568922743406,
+   "tilt": 3.731993117110656,
+   "knee_torque": 0.582578044751628,
+   "max_torque": 0.582578044751628
+  },
+  {
+   "knee_cmd_deg": 89.95437383553924,
+   "reachable": true,
+   "knee_actual_deg": 90.03203762207735,
+   "base_mm": 151.92245079972653,
+   "trunk_bottom_mm": 116.19960153926515,
+   "tilt": 0.65674450382915,
+   "knee_torque": 0.018194264063776444,
+   "max_torque": 0.22190407708151827
+  },
+  {
+   "knee_cmd_deg": 103.13240312354819,
+   "reachable": false
+  },
+  {
+   "knee_cmd_deg": 114.59155902616465,
+   "reachable": false
+  },
+  {
+   "knee_cmd_deg": 124.90479933851947,
+   "reachable": false
+  }
+ ],
+ "sit_to_stand": [
+  {
+   "seconds": 1.0,
+   "from_knee_deg": 90.0,
+   "peak_torque": 0.840443182494468,
+   "saturated": false,
+   "end_tilt": 0.4411892041501919,
+   "end_height_mm": 160.46919725865075
+  },
+  {
+   "seconds": 0.5,
+   "from_knee_deg": 90.0,
+   "peak_torque": 0.9520297273126168,
+   "saturated": false,
+   "end_tilt": 0.7491135831612432,
+   "end_height_mm": 160.9575522839356
+  },
+  {
+   "seconds": 0.3,
+   "from_knee_deg": 90.0,
+   "peak_torque": 1.13856929532038,
+   "saturated": false,
+   "end_tilt": 0.38660722029870154,
+   "end_height_mm": 160.76136057483006
+  }
+ ],
+ "self_collision": {
+  "always": [
+   "head_assembly / head_pitch_to_yaw",
+   "left_roll_to_pitch_assembly / trunk_assembly",
+   "right_roll_to_pitch_assembly / trunk_assembly"
+  ],
+  "new_by_knee_deg": {
+   "78": [],
+   "90": [],
+   "103": [],
+   "115": [],
+   "126": [],
+   "138": [
+    "foot_assembly / knee_and_ankle_assembly",
+    "foot_assembly_2 / knee_and_ankle_assembly_3"
+   ],
+   "149": [
+    "foot_assembly / knee_and_ankle_assembly",
+    "foot_assembly_2 / knee_and_ankle_assembly_3"
+   ]
+  }
+ },
+ "lying": {
+  "on_back": {
+   "trunk_com_z_mm": -192.17229902234317,
+   "lowest_part_mm": -0.14294529652627858,
+   "sinks_through_floor": true,
+   "touching": [
+    "foot_assembly",
+    "foot_assembly_2"
+   ],
+   "visual_parts_below_floor": [
+    "antenna",
+    "body_back",
+    "body_front",
+    "body_middle_bottom",
+    "body_middle_top",
+    "foot_bottom_pla",
+    "foot_side",
+    "foot_top",
+    "head",
+    "head_bot_sheet",
+    "head_pitch_to_yaw",
+    "head_yaw_to_roll",
+    "left_antenna_holder",
+    "left_cache",
+    "left_knee_to_ankle_left_sheet",
+    "left_knee_to_ankle_right_sheet",
+    "left_roll_to_pitch",
+    "leg_spacer",
+    "neck_left_sheet",
+    "neck_right_sheet",
+    "right_antenna_holder",
+    "right_cache",
+    "right_roll_to_pitch",
+    "roll_motor_bottom",
+    "roll_motor_top",
+    "trunk_bottom",
+    "trunk_top"
+   ]
+  },
+  "on_front": {
+   "trunk_com_z_mm": -192.7897968305907,
+   "lowest_part_mm": -0.1792826542339459,
+   "sinks_through_floor": true,
+   "touching": [
+    "foot_assembly",
+    "foot_assembly_2"
+   ],
+   "visual_parts_below_floor": [
+    "antenna",
+    "body_back",
+    "body_front",
+    "body_middle_bottom",
+    "body_middle_top",
+    "foot_bottom_pla",
+    "foot_side",
+    "foot_top",
+    "head",
+    "head_bot_sheet",
+    "head_pitch_to_yaw",
+    "head_yaw_to_roll",
+    "left_antenna_holder",
+    "left_cache",
+    "left_knee_to_ankle_left_sheet",
+    "left_knee_to_ankle_right_sheet",
+    "left_roll_to_pitch",
+    "leg_spacer",
+    "neck_left_sheet",
+    "neck_right_sheet",
+    "right_antenna_holder",
+    "right_cache",
+    "right_roll_to_pitch",
+    "roll_motor_bottom",
+    "roll_motor_top",
+    "trunk_bottom",
+    "trunk_top"
+   ]
+  },
+  "on_side": {
+   "trunk_com_z_mm": -192.571540955174,
+   "lowest_part_mm": -0.17142231612130193,
+   "sinks_through_floor": true,
+   "touching": [
+    "foot_assembly",
+    "foot_assembly_2"
+   ],
+   "visual_parts_below_floor": [
+    "antenna",
+    "body_back",
+    "body_front",
+    "body_middle_bottom",
+    "body_middle_top",
+    "foot_bottom_pla",
+    "foot_side",
+    "foot_top",
+    "head",
+    "head_bot_sheet",
+    "head_pitch_to_yaw",
+    "head_yaw_to_roll",
+    "left_antenna_holder",
+    "left_cache",
+    "left_knee_to_ankle_left_sheet",
+    "left_knee_to_ankle_right_sheet",
+    "left_roll_to_pitch",
+    "leg_spacer",
+    "neck_left_sheet",
+    "neck_right_sheet",
+    "right_antenna_holder",
+    "right_cache",
+    "right_roll_to_pitch",
+    "roll_motor_bottom",
+    "roll_motor_top",
+    "trunk_bottom",
+    "trunk_top"
+   ]
+  }
+ }
+}

@@ -1,0 +1,27 @@
+STAND HOLD 5 s × 10 (joint noise σ=0.05 rad, tilt ±3°): max tilt 4.30°, worst end tilt 0.31°, worst height error 1.1 mm, worst drift over last 4 s 1.78 mm, base moved 23.1 mm in total, 0.64 mm over the last 4 s, falls 0
+
+CROUCH (feet flat, servos hold):
+  knee cmd    78° (reached   81°): base  159 mm, trunk bottom  121 mm, tilt  3.7°, knee torque 0.58 N·m (30% of 7.4 V stall)
+  knee cmd    90° (reached   90°): base  152 mm, trunk bottom  116 mm, tilt  0.7°, knee torque 0.02 N·m (1% of 7.4 V stall)
+  knee cmd   103°: beyond the knee joint limit
+  knee cmd   115°: beyond the knee joint limit
+  knee cmd   125°: beyond the knee joint limit
+
+SIT-TO-STAND (scripted ramp, deepest crouch -> home):
+  1.0 s from knee 90°: peak servo torque 0.84 N·m (44% of 7.4 V stall), end tilt 0.4°, height 160 mm
+  0.5 s from knee 90°: peak servo torque 0.95 N·m (50% of 7.4 V stall), end tilt 0.7°, height 161 mm
+  0.3 s from knee 90°: peak servo torque 1.14 N·m (60% of 7.4 V stall), end tilt 0.4°, height 161 mm
+
+SELF-COLLISION (convex hulls): always touching: head_assembly / head_pitch_to_yaw; left_roll_to_pitch_assembly / trunk_assembly; right_roll_to_pitch_assembly / trunk_assembly
+  knee 78°: clear
+  knee 90°: clear
+  knee 103°: clear
+  knee 115°: clear
+  knee 126°: clear
+  knee 138°: foot_assembly / knee_and_ankle_assembly; foot_assembly_2 / knee_and_ankle_assembly_3
+  knee 149°: foot_assembly / knee_and_ankle_assembly; foot_assembly_2 / knee_and_ankle_assembly_3
+
+LYING (dropped from 30 cm, 2 s):
+  on_back: lowest colliding part -0 mm, trunk CoM -192 mm, SINKS THROUGH FLOOR; touching: foot_assembly, foot_assembly_2; non-colliding parts below floor: antenna, body_back, body_front, body_middle_bottom, body_middle_top, foot_bottom_pla, foot_side, foot_top, head, head_bot_sheet, head_pitch_to_yaw, head_yaw_to_roll, left_antenna_holder, left_cache, left_knee_to_ankle_left_sheet, left_knee_to_ankle_right_sheet, left_roll_to_pitch, leg_spacer, neck_left_sheet, neck_right_sheet, right_antenna_holder, right_cache, right_roll_to_pitch, roll_motor_bottom, roll_motor_top, trunk_bottom, trunk_top
+  on_front: lowest colliding part -0 mm, trunk CoM -193 mm, SINKS THROUGH FLOOR; touching: foot_assembly, foot_assembly_2; non-colliding parts below floor: antenna, body_back, body_front, body_middle_bottom, body_middle_top, foot_bottom_pla, foot_side, foot_top, head, head_bot_sheet, head_pitch_to_yaw, head_yaw_to_roll, left_antenna_holder, left_cache, left_knee_to_ankle_left_sheet, left_knee_to_ankle_right_sheet, left_roll_to_pitch, leg_spacer, neck_left_sheet, neck_right_sheet, right_antenna_holder, right_cache, right_roll_to_pitch, roll_motor_bottom, roll_motor_top, trunk_bottom, trunk_top
+  on_side: lowest colliding part -0 mm, trunk CoM -193 mm, SINKS THROUGH FLOOR; touching: foot_assembly, foot_assembly_2; non-colliding parts below floor: antenna, body_back, body_front, body_middle_bottom, body_middle_top, foot_bottom_pla, foot_side, foot_top, head, head_bot_sheet, head_pitch_to_yaw, head_yaw_to_roll, left_antenna_holder, left_cache, left_knee_to_ankle_left_sheet, left_knee_to_ankle_right_sheet, left_roll_to_pitch, leg_spacer, neck_left_sheet, neck_right_sheet, right_antenna_holder, right_cache, right_roll_to_pitch, roll_motor_bottom, roll_motor_top, trunk_bottom, trunk_top

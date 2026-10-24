@@ -1,0 +1,183 @@
+{
+ "robot": "duckbody/model/duck_mid.xml",
+ "control_hz": 50,
+ "servo_names": [
+  "left_hip_yaw",
+  "left_hip_roll",
+  "left_hip_pitch",
+  "left_knee",
+  "left_ankle",
+  "head_pitch",
+  "head_yaw",
+  "right_hip_yaw",
+  "right_hip_roll",
+  "right_hip_pitch",
+  "right_knee",
+  "right_ankle",
+  "jaw"
+ ],
+ "policy_servos": [
+  "left_hip_yaw",
+  "left_hip_roll",
+  "left_hip_pitch",
+  "left_knee",
+  "left_ankle",
+  "head_pitch",
+  "right_hip_yaw",
+  "right_hip_roll",
+  "right_hip_pitch",
+  "right_knee",
+  "right_ankle"
+ ],
+ "external_servos": [
+  "head_yaw",
+  "jaw"
+ ],
+ "home": [
+  0.002,
+  0.053,
+  -0.63,
+  1.368,
+  -0.784,
+  0.0,
+  0.0,
+  -0.003,
+  -0.065,
+  0.635,
+  1.379,
+  -0.796,
+  0.0
+ ],
+ "action_scale": [
+  0.4,
+  0.4,
+  1.0,
+  1.0,
+  1.0,
+  0.6,
+  0.4,
+  0.4,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "ctrl_low": [
+  -0.523599,
+  -0.436332,
+  -1.22173,
+  -1.5708,
+  -1.5708,
+  -0.785398,
+  -3.14159,
+  -0.523599,
+  -0.436332,
+  -0.523599,
+  -1.5708,
+  -1.5708,
+  0.0
+ ],
+ "ctrl_high": [
+  0.523599,
+  0.436332,
+  0.523599,
+  2.18166,
+  1.5708,
+  0.785398,
+  3.14159,
+  0.523599,
+  0.436332,
+  1.22173,
+  2.18166,
+  1.5708,
+  0.61
+ ],
+ "size_L": 0.690281,
+ "stand_height": 0.111135,
+ "commands": [
+  "stand",
+  "walk",
+  "run",
+  "sit",
+  "lie",
+  "jump",
+  "roll"
+ ],
+ "gait_hz": {
+  "walk": 1.8,
+  "run": 2.6
+ },
+ "quiet_skills": [
+  "squat",
+  "sit",
+  "lie",
+  "jump",
+  "roll"
+ ],
+ "head_yaw_rate": 2.0,
+ "obs_noise_in_training": 0.01,
+ "skill": "squat",
+ "command": "sit",
+ "steps": 1500000,
+ "test_score": "100% success, mean reward 152.3 (train.py exam)",
+ "packaged": "2026-10-24",
+ "obs_size": 60,
+ "action_size": 11,
+ "obs_layout": [
+  {
+   "name": "gravity_in_imu_frame",
+   "size": 3,
+   "meaning": "unit vector, from the IMU orientation"
+  },
+  {
+   "name": "gyro_x0.25",
+   "size": 3,
+   "meaning": "IMU angular velocity, rad/s \u00d7 0.25"
+  },
+  {
+   "name": "accelerometer_div_9.81",
+   "size": 3,
+   "meaning": "IMU linear acceleration, m/s\u00b2 / 9.81"
+  },
+  {
+   "name": "joint_pos_minus_home",
+   "size": 13,
+   "meaning": "every servo, rad, minus the home pose"
+  },
+  {
+   "name": "joint_vel_x0.05",
+   "size": 13,
+   "meaning": "every servo, rad/s \u00d7 0.05"
+  },
+  {
+   "name": "last_action",
+   "size": 11,
+   "meaning": "the brain's previous output, after clipping to \u00b11"
+  },
+  {
+   "name": "command_one_hot",
+   "size": 7,
+   "meaning": "[stand, walk, run, sit, lie, jump, roll]"
+  },
+  {
+   "name": "velocity_command",
+   "size": 3,
+   "meaning": "vx, vy (m/s), yaw rate (rad/s); zeros unless walk/run"
+  },
+  {
+   "name": "gait_clock",
+   "size": 2,
+   "meaning": "sin, cos of 2\u03c0\u00b7f\u00b7t; zeros unless walk (1.8 Hz) / run (2.6 Hz)"
+  },
+  {
+   "name": "foot_switches",
+   "size": 2,
+   "meaning": "left, right sole on the floor (0/1)"
+  }
+ ],
+ "normalizer": {
+  "clip_obs": 10.0,
+  "epsilon": 1e-08
+ },
+ "onnx_max_difference": 4.172325134277344e-07,
+ "onnx_check_samples": 1000
+}

@@ -1,0 +1,10 @@
+{
+ "steps": null,
+ "note": "straight-core squat; stopped at ~2.0M steps after 5/5 at 1.5M and 2M (body within 10\u00b0, depth within 1.4 cm)",
+ "exam": {
+  "squat": {
+   "success": 1.0,
+   "mean_reward": 152.3
+  }
+ }
+}

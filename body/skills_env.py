@@ -207,6 +207,10 @@ class SkillEnv(DuckEnv):
             # Squat: the core stays straight (body upright within ~10°), only hips/knees/ankles fold.
             h_ref = max(self.crouch_height, self.start_height - 0.10 * L * s)
             r_h = np.exp(-((p["height"] - h_ref) / sh) ** 2)
+            # Once the reference is at the bottom, depth matters: a half-squat 1.7 cm too high used to
+            # keep half the reward. (Tight tracking during the whole descent left no signal at all.)
+            if h_ref <= self.crouch_height + 1e-6:
+                r_h *= 0.3 + 0.7 * np.exp(-((p["height"] - self.crouch_height) / (0.4 * sh)) ** 2)
             r_up = np.exp(-((1.0 - p["up"]) / 0.02) ** 2)
             legs = self.qadr[self.legs]
             r_pose = np.exp(-np.sum((self.data.qpos[legs] - self.crouch_q[legs]) ** 2) / 0.5)
